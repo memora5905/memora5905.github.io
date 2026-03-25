@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mauricio Morales | Data & Sales Analytics</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --text: #c9d1d9;
+      --text-dim: #8b949e;
+      --heading: #f0f6fc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      color: var(--heading);
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 28px; }
+    .badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+    .cta-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.8; }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+
+    /* SECTIONS */
+    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+    h2 {
+      font-size: 1.6rem;
+      color: var(--heading);
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      color: var(--text-dim);
+      margin-bottom: 36px;
+      font-size: 0.95rem;
+    }
+
+    /* STATS STRIP */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 0;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-card .label {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* SKILL CARDS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+    }
+    .skill-card h3 {
+      color: var(--heading);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .skill-icon { font-size: 1.4rem; }
+    .skill-list { list-style: none; }
+    .skill-list li {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-list li:last-child { border-bottom: none; }
+    .skill-list li::before { content: "▸ "; color: var(--accent2); }
+
+    /* PROJECT CARDS */
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .project-card h3 {
+      color: var(--heading);
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .project-card p {
+      color: var(--text-dim);
+      font-size: 0.93rem;
+      margin-bottom: 16px;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .tag {
+      background: rgba(88,166,255,0.1);
+      border: 1px solid rgba(88,166,255,0.3);
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 2px 10px;
+      font-size: 0.78rem;
+    }
+    .project-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .project-link {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 4px;
+    }
+    .project-link:hover { border-color: var(--accent); }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+    .timeline-item h3 { color: var(--heading); font-size: 1rem; margin-bottom: 2px; }
+    .timeline-item .meta { color: var(--accent); font-size: 0.82rem; margin-bottom: 6px; }
+    .timeline-item p { color: var(--text-dim); font-size: 0.9rem; }
+
+    /* AI SECTION */
+    .ai-card {
+      background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(63,185,80,0.08));
+      border: 1px solid rgba(88,166,255,0.3);
+      border-radius: 10px;
+      padding: 32px;
+    }
+    .ai-card h3 { color: var(--heading); font-size: 1.2rem; margin-bottom: 12px; }
+    .ai-card p { color: var(--text-dim); font-size: 0.93rem; margin-bottom: 12px; }
+    .ai-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px; }
+    .ai-detail { background: rgba(0,0,0,0.2); border-radius: 6px; padding: 14px; }
+    .ai-detail .dt { color: var(--accent); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .ai-detail .dd { color: var(--text); font-size: 0.9rem; }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s;
+    }
+    .contact-card:hover { border-color: var(--accent); }
+    .contact-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .contact-card .ct { font-size: 0.85rem; color: var(--text-dim); }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Mauricio <span>Morales</span></h1>
+  <p>Sales professional transitioning into data analytics. 5+ years at CarMax, 800+ units sold, and a self-taught stack in Excel, SQL, and AI.</p>
+  <div class="badges">
+    <span class="badge">Excel</span>
+    <span class="badge">SQL</span>
+    <span class="badge">Salesforce CRM</span>
+    <span class="badge">Python</span>
+    <span class="badge">AI Agent Deployment</span>
+  </div>
+  <div class="cta-links">
+    <a href="https://www.linkedin.com/in/mauricio-morales-1759a3231" class="btn btn-primary" target="_blank">LinkedIn</a>
+    <a href="https://github.com/memora5905" class="btn btn-ghost" target="_blank">GitHub</a>
+    <a href="https://github.com/memora5905/README/raw/main/Excel%20experience%20example.xlsx" class="btn btn-ghost">Download Excel Project</a>
+  </div>
+</div>
+
+<!-- STATS -->
+<section>
+  <div class="container">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="number">800+</div>
+        <div class="label">Vehicles Sold</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">5+</div>
+        <div class="label">Years at CarMax</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">100%</div>
+        <div class="label">Mentee Success Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">2</div>
+        <div class="label">Awards Won</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">3</div>
+        <div class="label">Tools Mastered</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <div class="container">
+    <h2>Skills</h2>
+    <p class="section-sub">Self-taught and applied in real work environments.</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3><span class="skill-icon">📊</span> Microsoft Excel</h3>
+        <ul class="skill-list">
+          <li>SUMIF / COUNTIF / AVERAGEIF</li>
+          <li>INDEX / MATCH</li>
+          <li>Structured table references</li>
+          <li>Cross-sheet formulas</li>
+          <li>KPI dashboards</li>
+          <li>Revenue & margin analysis</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3><span class="skill-icon">🗄️</span> SQL</h3>
+        <ul class="skill-list">
+          <li>SELECT, WHERE, GROUP BY, HAVING</li>
+          <li>Aggregations (SUM, AVG, COUNT)</li>
+          <li>Window functions (RANK, SUM OVER)</li>
+          <li>Subqueries</li>
+          <li>Date functions</li>
+          <li>SQLite & DataCamp certified</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3><span class="skill-icon">☁️</span> Salesforce CRM</h3>
+        <ul class="skill-list">
+          <li>Pipeline & appointment management</li>
+          <li>CRM dashboard reporting</li>
+          <li>Lead tracking & coordination</li>
+          <li>Coursera certified</li>
+          <li>2 years production use</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3><span class="skill-icon">🤖</span> AI & Automation</h3>
+        <ul class="skill-list">
+          <li>Deployed personal AI agent (Remy)</li>
+          <li>OpenClaw + Claude API</li>
+          <li>Server configuration & management</li>
+          <li>Telegram integration</li>
+          <li>Memory & task automation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <div class="container">
+    <h2>Projects</h2>
+    <p class="section-sub">Built to demonstrate real analytical skills, not just coursework.</p>
+
+    <div class="project-card">
+      <h3>📊 Bike Sales Analytics — Excel</h3>
+      <p>Multi-sheet sales analysis workbook analyzing global bike sales data across 6 countries. Built a full KPI dashboard from raw transaction data using advanced Excel formulas.</p>
+      <div class="tag-row">
+        <span class="tag">SUMIF</span>
+        <span class="tag">COUNTIF</span>
+        <span class="tag">INDEX/MATCH</span>
+        <span class="tag">RANK</span>
+        <span class="tag">Dashboard</span>
+        <span class="tag">Cross-sheet References</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/memora5905/README/raw/main/Excel%20experience%20example.xlsx" class="project-link">⬇ Download Workbook</a>
+        <a href="https://github.com/memora5905/README/blob/main/Excel%20experience%20example.xlsx" class="project-link">View on GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3>🗄️ Bike Sales Analysis — SQL</h3>
+      <p>SQL analysis of the same sales dataset using SQLite. 10 query sections covering exploration, aggregation, shipping performance, margin analysis, window functions, and subqueries.</p>
+      <div class="tag-row">
+        <span class="tag">GROUP BY</span>
+        <span class="tag">Window Functions</span>
+        <span class="tag">RANK()</span>
+        <span class="tag">Subqueries</span>
+        <span class="tag">Running Totals</span>
+        <span class="tag">SQLite</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/memora5905/README/blob/main/bike_sales_analysis.sql" class="project-link">View SQL File</a>
+        <a href="https://github.com/memora5905/README/raw/main/bike_sales.db" class="project-link">⬇ Download Database</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3>📓 Data Science Ecosystem — Python / Jupyter</h3>
+      <p>Introductory data science notebook covering Python fundamentals, key libraries, and the broader ecosystem of data analysis tools.</p>
+      <div class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag">Jupyter Notebook</span>
+        <span class="tag">Data Science</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/memora5905/Jupyter-Notebook-FN1" class="project-link">View on GitHub</a>
+      </div>
+    </div>
+
+    <!-- AI PROJECT -->
+    <div class="ai-card">
+      <h3>🤖 Remy — Personal AI Agent Deployment</h3>
+      <p>Most people use AI tools. I deployed one. Remy is a Claude-powered AI assistant I configured and run on a live server to help with career development, analysis projects, and automation.</p>
+      <p>This project demonstrates practical AI literacy that goes beyond prompting — understanding APIs, server configuration, memory systems, and integrating AI into real workflows.</p>
+      <div class="ai-details">
+        <div class="ai-detail">
+          <div class="dt">Platform</div>
+          <div class="dd">OpenClaw + Claude API</div>
+        </div>
+        <div class="ai-detail">
+          <div class="dt">Runtime</div>
+          <div class="dd">Live VPS server</div>
+        </div>
+        <div class="ai-detail">
+          <div class="dt">Integration</div>
+          <div class="dd">Telegram messaging</div>
+        </div>
+        <div class="ai-detail">
+          <div class="dt">Use case</div>
+          <div class="dd">Career tools, portfolio building, analysis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section>
+  <div class="container">
+    <h2>Experience</h2>
+    <p class="section-sub">5+ years at CarMax — from top salesperson to operations coordinator.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Floor Sales Coordinator</h3>
+        <div class="meta">CarMax · 2 years</div>
+        <p>Selected to pioneer a new role. Managed incoming appointments, operated CRM dashboards, and drove sales production for the team. Bridged operations and sales in a data-driven coordination function.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Sales Consultant</h3>
+        <div class="meta">CarMax · 5+ years total</div>
+        <p>Sold 800+ vehicles. Earned President's Club and Director's Club recognition for top-tier performance. Mentored new associates through the training program — 100% completion and bonus achievement rate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="container">
+    <h2>Let's Connect</h2>
+    <p class="section-sub">Open to Sales Support Analyst, Finance Analyst, and Credit Analyst roles.</p>
+    <div class="contact-grid">
+      <a href="https://www.linkedin.com/in/mauricio-morales-1759a3231" class="contact-card" target="_blank">
+        <div class="icon">💼</div>
+        <div>LinkedIn</div>
+        <div class="ct">Mauricio Morales</div>
+      </a>
+      <a href="https://github.com/memora5905" class="contact-card" target="_blank">
+        <div class="icon">🐙</div>
+        <div>GitHub</div>
+        <div class="ct">@memora5905</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built by Mauricio Morales · Powered by curiosity and SQLite 🐀</p>
+</footer>
+
+</body>
+</html>
